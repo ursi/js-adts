@@ -112,6 +112,24 @@ const eq = function f(a, b) {
 	}
 };
 
+const show = function f(a) {
+	if (typeof a === `object`) {
+		if (a === null) {
+			return a;
+		} else if (a.hasOwnProperty(constructorKey)) {
+			return a.length === 0
+				? a[constructorKey]
+				: `(${a[constructorKey]} ${a.map(f).join(` `)})`;
+		} else if (Array.isArray(a)) {
+			return `[ ${a.map(f).join(`, `)} ]`;
+		} else {
+			return a.toString();
+		}
+	} else {
+		return a;
+	}
+};
+
 const Maybe = type => {
 	return ADT(`Maybe ${toTypeString(type)}`, {
 		Just: [ type ],
@@ -144,6 +162,7 @@ export default ADT
 
 export {
 	eq,
+	show,
 	typeOf,
 	toTypeString,
 	Maybe,
