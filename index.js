@@ -40,6 +40,9 @@ const enforceArgs = (types, f) => {
 };
 
 const ADT = (name, constructors) => {
+	if (typeof name !== `string`)
+		throw Error(`You forgot to give your type a name.`);
+
 	const typeObject = {};
 	const typeName = `(${name})`;
 
