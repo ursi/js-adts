@@ -18,5 +18,6 @@
   "bugs": {
     "url": "https://github.com/ursi/js-adts/issues"
   },
-  "homepage": "https://github.com/ursi/js-adts#readme"
+  "homepage": "https://github.com/ursi/js-adts#readme",
+  "type": "module"
 }
